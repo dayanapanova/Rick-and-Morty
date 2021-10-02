@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
+import axios from 'axios';
 
 
 const initialState = {
-    value: '',
+    value: [],
 }
 
 export const counterSlice = createSlice({
@@ -11,16 +11,18 @@ export const counterSlice = createSlice({
     initialState,
     reducers: {
         getAllCharacters: (state) => {
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
             state.value += 1
         },
     },
 })
 
-// Action creators are generated for each case reducer function
+const getData = () => {
+    axios.get('https://rickandmortyapi.com/api/character')
+        .then(response => {
+            console.log(response.data.results)
+        });
+}
+
 export const { getAllCharacters } = counterSlice.actions
 
 export default counterSlice.reducer

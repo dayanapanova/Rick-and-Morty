@@ -32,8 +32,19 @@ code {
   cursor: pointer;
 }
 
-.content-section {
-  top: 0;
-  left: 50%;
+.character-holder {
   position: absolute;
+  top: 0;
+  right: 60%;
+  border: 1px solid #ccc;
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 2px;
+}
+
+.character-holder-image {
+  flex-basis: 40%;
+  background-color: aqua;
 }

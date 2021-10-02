@@ -1,10 +1,8 @@
 import React from "react";
-
+import SingleCharacter from "./SingleCharacter";
 const Characters = () => {
     return (
-        <div className="content-section">
-            <h1>Characters</h1>
-        </div>
+        <SingleCharacter />
     )
 }
 
