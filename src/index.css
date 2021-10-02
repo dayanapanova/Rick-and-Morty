@@ -20,3 +20,20 @@ code {
   width: 90px;
   background-color: rgb(255 152 0);
 }
+
+.navigation-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  fill: #fff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.content-section {
+  top: 0;
+  left: 50%;
+  position: absolute;
+}
