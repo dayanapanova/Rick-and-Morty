@@ -44,7 +44,6 @@ code {
   border-radius: 2px;
 }
 
-.character-holder-image {
+.character-holder-image img{
   flex-basis: 40%;
-  background-color: aqua;
 }
