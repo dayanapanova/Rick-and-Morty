@@ -2,28 +2,16 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const SingleCharacter = () => {
-    const rickAndMortyUrl = 'https://rickandmortyapi.com/api/character';
-    const [userData, setUserData] = useState([]);;
+const SingleCharacter = ({ image, name, status }) => {
 
-    useEffect(() => {
-        axios.get(rickAndMortyUrl)
-            .then(response => {
-                console.log(response.data);
-                setUserData(response.data)
-            })
-    }, []);
 
     return (
-        <div className="character-holder">
-            <img className="character-holder-image" alt=''>
-                {userData.image}
-            </img>
-            <div className="character-holder-info">
-                <div>{userData.name}</div>
-                <div>{userData.species}</div>
-                <div>{userData.status}</div>
+        <div className='character-holder'>
+            <div className='character-holder-image'>
+                image
             </div>
+            <div>{name}</div>
+            <div>{status}</div>
         </div>
     )
 }

@@ -44,6 +44,6 @@ code {
   border-radius: 2px;
 }
 
-.character-holder-image img{
+.character-holder-image {
   flex-basis: 40%;
 }
