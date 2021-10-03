@@ -7,14 +7,13 @@ const SingleCharacter = () => {
     const [userData, setUserData] = useState([]);;
 
     useEffect(() => {
-        getData();
+        axios.get(rickAndMortyUrl)
+            .then(response => {
+                console.log(response.data);
+                setUserData(response.data)
+            })
     }, []);
 
-    const getData = async () => {
-        const response = await axios.get(rickAndMortyUrl);
-        console.log(response?.data?.results);
-        setUserData(response?.data?.results);
-    };
     return (
         <div className="character-holder">
             <img className="character-holder-image" alt=''>
