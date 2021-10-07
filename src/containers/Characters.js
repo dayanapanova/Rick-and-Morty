@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Grid, Chip } from '@mui/material';
 import CharacterItem from "../components/CharacterItem";
 import { useDispatch, useSelector } from 'react-redux';
-import { getCharacters } from '../store/CharactersSlice';
+import { getCharacters } from '../store/CharacterSlice';
 
 const CharactersPage = () => {
     const dispatch = useDispatch();
