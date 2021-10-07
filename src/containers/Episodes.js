@@ -1,6 +1,6 @@
 import React from "react";
 
-const Episodes = () => {
+const EpisodesPage = () => {
     return (
         <div className="content-section">
             <h1>Episodes</h1>
@@ -8,4 +8,4 @@ const Episodes = () => {
     )
 }
 
-export default Episodes;
+export default EpisodesPage;

@@ -1,9 +1,8 @@
-import Navigation from './components/Navigation';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
-import Characters from './components/Characters';
-import Episodes from './components/Episodes';
-import Home from './components/Home'
+import Characters from './containers/Characters';
+import Episodes from './containers/Episodes';
+import Navigation from './components/Navigation';
 function App() {
 
   return (
@@ -12,7 +11,7 @@ function App() {
         <Navigation />
       </div>
       <Switch>
-        <Route exact path='/' component={Home}></Route>
+        <Route exact path='/' component={Characters}></Route>
         <Route exact path='/episodes' component={Episodes}></Route>
         <Route exact path='/characters' component={Characters}></Route>
       </Switch>
