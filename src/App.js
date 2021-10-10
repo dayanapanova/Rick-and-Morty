@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Characters from './containers/Characters';
 import Episodes from './containers/Episodes';
@@ -11,7 +11,7 @@ function App() {
         <Navigation />
       </div>
       <Switch>
-        <Route exact path='/' component={Characters}></Route>
+        <Route exact path='/' component={Episodes}></Route>
         <Route exact path='/episodes' component={Episodes}></Route>
         <Route exact path='/characters' component={Characters}></Route>
       </Switch>
