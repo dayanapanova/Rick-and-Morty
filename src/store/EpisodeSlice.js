@@ -19,8 +19,8 @@ export const episodeSlice = createSlice({
 
 export const { getEpisodesSuccess } = episodeSlice.actions;
 
-export const getEpisodes = () => async (dispatch) => {
-    axios.get('https://rickandmortyapi.com/api/episode').then(
+export const getEpisodes = (page) => async (dispatch) => {
+    axios.get(`https://rickandmortyapi.com/api/episode/?page=${page}`).then(
         (response) => dispatch(getEpisodesSuccess(response)),
     )
 }

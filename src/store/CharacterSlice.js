@@ -5,6 +5,7 @@ const initialState = {
     charactersList: {
         results: [],
     },
+    singleCharacter: {}
 }
 
 export const counterSlice = createSlice({
@@ -14,15 +15,20 @@ export const counterSlice = createSlice({
         getCharactersSuccess: (state, { payload }) => {
             state.charactersList = payload?.data;
         },
+        getSingleCharactersSuccess: (state, { payload }) => {
+            state.singleCharacter = payload?.data;
+        }
     },
 })
 
 export const { getCharactersSuccess } = counterSlice.actions
 
-export const getCharacters = () => async (dispatch) => {
-    axios.get('https://rickandmortyapi.com/api/character').then(
+export const getCharacters = (page) => async (dispatch) => {
+    axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`).then(
         (response) => dispatch(getCharactersSuccess(response)),
     )
 };
+
+
 
 export default counterSlice.reducer
