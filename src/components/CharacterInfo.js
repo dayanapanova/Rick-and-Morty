@@ -1,19 +1,18 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, Avatar, Typography } from '@mui/material';
 
-const CharacterItem = ({ image, name, status, onClick }) => {
+const CharacterInfo = ({ name, status, species }) => {
     return (
         <Card>
             <CardContent>
                 <CardHeader
-                    onClick={onClick}
-                    avatar={<Avatar src={image} />}
                     title={<Typography variant="body2">{name}</Typography>}
                     subheader={status}
+                    species={species}
                 />
             </CardContent>
         </Card>
     )
 }
 
-export default CharacterItem;
+export default CharacterInfo;

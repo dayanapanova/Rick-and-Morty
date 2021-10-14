@@ -3,6 +3,7 @@ import './App.css';
 import Characters from './containers/Characters';
 import Episodes from './containers/Episodes';
 import Navigation from './components/Navigation';
+import CharacterInfo from './components/CharacterInfo';
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/' component={Episodes}></Route>
         <Route exact path='/episodes' component={Episodes}></Route>
         <Route exact path='/characters' component={Characters}></Route>
+        <Route path='/characters/:id' exact={true} component={CharacterInfo}></Route>
       </Switch>
     </Router>
   );

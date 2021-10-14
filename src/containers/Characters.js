@@ -6,10 +6,11 @@ import CharacterItem from "../components/CharacterItem";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCharacters } from '../store/CharacterSlice';
 import AppPagination from '../components/AppPagination';
+import { useState, } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 
 const CharactersPage = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const { characters: { charactersList } } = useSelector((state) => state);
     const [page, setPage] = useState(1);
@@ -23,13 +24,14 @@ const CharactersPage = () => {
         <>
             <Container>
                 <Grid container spacing={2}>
-                    {charactersList?.results.map(({ image, name, status }, index) => (
+                    {charactersList?.results.map(({ id, image, name, status }, index) => (
                         <Grid key={`${name}-${index}`} item xs={3}>
                             <CharacterItem
-
+                                onClick={() => history.push(`/characters/${id}`)}
                                 image={image}
                                 name={name}
-                                status={<Chip color='success' size='small' label={status} />}
+                                status={<Chip color='success' size='small' label={status}
+                                />}
                             />
                         </Grid>
                     ))}
