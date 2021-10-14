@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, Avatar } from '@mui/material';
+import { Card, CardContent, CardHeader, Avatar, Typography } from '@mui/material';
 
 const CharacterItem = ({ image, name, status }) => {
     return (
@@ -7,7 +7,7 @@ const CharacterItem = ({ image, name, status }) => {
             <CardContent>
                 <CardHeader
                     avatar={<Avatar src={image} />}
-                    title={name}
+                    title={<Typography variant="body2">{name}</Typography>}
                     subheader={status}
                 />
             </CardContent>

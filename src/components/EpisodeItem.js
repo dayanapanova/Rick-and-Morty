@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader, Typography } from '@mui/material';
 
-const EpisodeItem = ({ name, air_date, episode }) => {
+const EpisodeItem = ({ name, episode }) => {
     return (
         <Card>
             <CardContent>
                 <CardHeader
-                    title={name}
+                    title={<Typography variant="body2">{name}</Typography>}
                     subheader={episode}
                 />
             </CardContent>

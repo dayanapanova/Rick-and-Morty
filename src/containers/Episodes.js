@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Grid } from '@mui/material';
+import { Grid, Chip } from '@mui/material';
 import Container from '@mui/material/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEpisodes } from '../store/EpisodeSlice';
@@ -22,7 +22,7 @@ const EpisodesPage = () => {
                         <EpisodeItem
                             name={name}
                             air_date={air_date}
-                            episode={episode}
+                            episode={<Chip size="small" color="success" label={episode} />}
                         />
                     </Grid>
                 ))}
