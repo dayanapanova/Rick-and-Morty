@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, Avatar, Typography } from '@mui/material';
 
 const CharacterItem = ({ image, name, status, onClick }) => {

@@ -1,34 +1,35 @@
-import React from 'react';
 import { useEffect } from "react";
-import { Grid, Chip } from '@mui/material';
+import { useParams } from "react-router-dom";
+import { Grid, Container } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSingleCharacters } from '../store/CharacterSlice';
-import CharacterInfo from '../components/CharacterInfo';
+import { getSingleCharacter } from '../store/CharacterSlice';
+import TabComponent from '../components/TabComponent';
 
-const SingleCharacters = () => {
+
+const SingleCharacter = () => {
+    const params = useParams();
+    const characterID = params?.id;
     const dispatch = useDispatch();
     const { characters: { singleCharacter } } = useSelector((state) => state);
-    useEffect(() => {
-        dispatch(getSingleCharacters());
-    }, []);
 
-    console.log('singleCharacter', singleCharacter?.data)
+    useEffect(() => {
+        if (characterID) {
+            dispatch(getSingleCharacter(characterID));
+        }
+    }, [characterID]);
+
     return (
-        <>
+        <Container>
             <Grid container spacing={2}>
-                {singleCharacter?.data.map(({ name, status, species }, index) => (
-                    <Grid key={`${name}-${index}`} item xs={3}>
-                        <CharacterInfo
-                            species={species}
-                            name={name}
-                            status={<Chip color='success' size='small' label={status}
-                            />}
-                        />
-                    </Grid>
-                ))}
+                <TabComponent
+                    name={singleCharacter?.name}
+                    gender={singleCharacter?.gender}
+                    species={singleCharacter?.species}
+                    status={singleCharacter?.status}
+                />
             </Grid>
-        </>
+        </Container>
     )
 }
 
-export default SingleCharacters;
+export default SingleCharacter;

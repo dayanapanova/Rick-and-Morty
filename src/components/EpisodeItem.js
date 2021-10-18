@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, Typography } from '@mui/material';
 
 const EpisodeItem = ({ name, episode, }) => {

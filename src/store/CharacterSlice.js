@@ -15,13 +15,13 @@ export const counterSlice = createSlice({
         getCharactersSuccess: (state, { payload }) => {
             state.charactersList = payload?.data;
         },
-        getSingleCharactersSuccess: (state, { payload }) => {
+        getSingleCharacterSuccess: (state, { payload }) => {
             state.singleCharacter = payload?.data;
         }
     },
 })
 
-export const { getCharactersSuccess, getSingleCharactersSuccess } = counterSlice.actions
+export const { getCharactersSuccess, getSingleCharacterSuccess } = counterSlice.actions
 
 export const getCharacters = (page) => async (dispatch) => {
     axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`).then(
@@ -29,9 +29,9 @@ export const getCharacters = (page) => async (dispatch) => {
     )
 };
 
-export const getSingleCharacters = (id) => async (dispatch) => {
+export const getSingleCharacter = (id) => async (dispatch) => {
     axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
-        (response) => dispatch(getSingleCharactersSuccess(response)),
+        (response) => dispatch(getSingleCharacterSuccess(response)),
     )
 };
 

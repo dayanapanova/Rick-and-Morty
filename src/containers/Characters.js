@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import { Grid, Chip } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -14,11 +13,10 @@ const CharactersPage = () => {
     const dispatch = useDispatch();
     const { characters: { charactersList } } = useSelector((state) => state);
     const [page, setPage] = useState(1);
+
     useEffect(() => {
         dispatch(getCharacters(page));
     }, [page]);
-
-    console.log('charactersList', charactersList?.results);
 
     return (
         <>
@@ -36,8 +34,12 @@ const CharactersPage = () => {
                         </Grid>
                     ))}
                 </Grid>
+                <AppPagination
+                    setPage={setPage}
+                    page={page}
+                    totalPages={charactersList?.info?.pages}
+                />
             </Container>
-            <AppPagination setPage={setPage} page={page} />
         </>
     )
 }

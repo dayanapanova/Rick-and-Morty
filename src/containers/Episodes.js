@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { Grid, Chip } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -6,17 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getEpisodes } from '../store/EpisodeSlice';
 import EpisodeItem from "../components/EpisodeItem";
 import AppPagination from '../components/AppPagination';
-import { useState } from 'react';
 
 const EpisodesPage = () => {
     const dispatch = useDispatch();
     const { episodes: { episodesList } } = useSelector((state) => state);
     const [page, setPage] = useState(1);
+
     useEffect(() => {
         dispatch(getEpisodes(page));
     }, [page]);
 
-    console.log('episodesList', episodesList?.results);
     return (
         <>
             <Container>
@@ -30,8 +29,12 @@ const EpisodesPage = () => {
                         </Grid>
                     ))}
                 </Grid>
+                <AppPagination
+                    setPage={setPage}
+                    page={page}
+                    totalPages={episodesList?.info?.pages}
+                />
             </Container>
-            <AppPagination setPage={setPage} page={page} />
         </>
     )
 }
