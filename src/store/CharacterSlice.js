@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios';
+import httpClient from '../api/httpClient';
 
 const initialState = {
     charactersList: {
@@ -24,17 +24,15 @@ export const counterSlice = createSlice({
 export const { getCharactersSuccess, getSingleCharacterSuccess } = counterSlice.actions
 
 export const getCharacters = (page) => async (dispatch) => {
-    axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`).then(
+    httpClient.get(`/character/?page=${page}`).then(
         (response) => dispatch(getCharactersSuccess(response)),
     )
 };
 
 export const getSingleCharacter = (id) => async (dispatch) => {
-    axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
+    httpClient.get(`/character/${id}`).then(
         (response) => dispatch(getSingleCharacterSuccess(response)),
     )
 };
-
-
 
 export default counterSlice.reducer

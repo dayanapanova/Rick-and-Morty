@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import httpClient from '../api/httpClient';
 
 const initialState = {
     episodesList: {
@@ -20,7 +20,7 @@ export const episodeSlice = createSlice({
 export const { getEpisodesSuccess } = episodeSlice.actions;
 
 export const getEpisodes = (page) => async (dispatch) => {
-    axios.get(`https://rickandmortyapi.com/api/episode/?page=${page}`).then(
+    httpClient.get(`/episode/?page=${page}`).then(
         (response) => dispatch(getEpisodesSuccess(response)),
     )
 }

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSingleCharacter } from '../store/CharacterSlice';
 import TabComponent from '../components/TabComponent';
 
-
 const SingleCharacter = () => {
     const params = useParams();
     const characterID = params?.id;
