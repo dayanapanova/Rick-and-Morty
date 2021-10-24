@@ -1,23 +1,25 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import Characters from './containers/Characters';
-import Episodes from './containers/Episodes';
-import SingleCharacter from './containers/SingleCharacters'
-import Navigation from './components/Navigation';
+import { ThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
+import { Episodes, Characters, SingleCharacter } from './containers';
+import { Header } from './components';
+import { theme } from './styles';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navigation />
-      </div>
-      <Switch>
-        <Route exact path='/' component={Episodes} />
-        <Route exact path='/episodes' component={Episodes} />
-        <Route exact path='/characters' component={Characters} />
-        <Route path='/characters/:id' exact={true} component={SingleCharacter} />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Header />
+        <Box mt={12}>
+          <Switch>
+            <Route exact path='/' component={Characters} />
+            <Route exact path='/episodes' component={Episodes} />
+            <Route exact path='/characters' component={Characters} />
+            <Route path='/characters/:id' exact={true} component={SingleCharacter} />
+          </Switch>
+        </Box>
+      </Router>
+    </ThemeProvider>
   );
 }
 

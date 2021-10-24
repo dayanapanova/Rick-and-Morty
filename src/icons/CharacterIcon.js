@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => (
+const CharacterIcon = (props) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0"
@@ -9,6 +9,7 @@ export default (props) => (
         version="1.1"
         viewBox="0 0 426.667 426.667"
         xmlSpace="preserve"
+        fill='currentColor'
         {...props}
     >
         <path d="M149.333 208c-14.72 0-26.667 11.947-26.667 26.667 0 14.72 11.947 26.667 26.667 26.667S176 249.387 176 234.667c0-14.72-11.947-26.667-26.667-26.667z"></path>
@@ -16,3 +17,5 @@ export default (props) => (
         <path d="M277.333 208c-14.72 0-26.667 11.947-26.667 26.667 0 14.72 11.947 26.667 26.667 26.667S304 249.387 304 234.667c0-14.72-11.947-26.667-26.667-26.667z"></path>
     </svg>
 )
+
+export default CharacterIcon;
